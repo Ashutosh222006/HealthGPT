@@ -8,3 +8,4 @@ google-generativeai
 SpeechRecognition
 pydub
 Pillow
+huggingface_hub

@@ -3,7 +3,7 @@ groq
 python-dotenv
 pypdf
 sentence-transformers
-chromadb
+chromadb==1.5.9
 google-generativeai
 SpeechRecognition
 pydub

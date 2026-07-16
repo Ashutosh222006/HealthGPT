@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-
+from huggingface_hub import snapshot_download
 import chromadb
 from groq import Groq
 from sentence_transformers import SentenceTransformer
@@ -64,7 +64,22 @@ print("🚀 Loading AI Health Assistant...")
 model = SentenceTransformer(EMBEDDING_MODEL)
 
 print("✅ Embedding Model Loaded")
+# ==========================================
+# DOWNLOAD CHROMADB FROM HUGGING FACE
+# ==========================================
 
+if not os.path.exists("chroma_db"):
+
+    print("Downloading ChromaDB from Hugging Face...")
+
+    snapshot_download(
+        repo_id="pvcashu/healthgpt-data",
+        repo_type="dataset",
+        local_dir=".",
+        local_dir_use_symlinks=False
+    )
+
+    print("Download Complete!")
 # ==========================================
 # LOAD CHROMADB
 # ==========================================

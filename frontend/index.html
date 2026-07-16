@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Health Assistant</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            🏥 AI Health Assistant
+
+        </div>
+
+        <div class="status">
+
+            ● Online
+
+        </div>
+
+    </header>
+
+    <!-- Chat -->
+
+    <main id="chatContainer" class="chatContainer">
+
+        <div class="bot">
+
+            👋 Welcome to AI Health Assistant
+
+            <br><br>
+
+            Ask anything about:
+
+            <ul>
+
+                <li>Diseases</li>
+
+                <li>Medicines</li>
+
+                <li>Symptoms</li>
+
+                <li>Diet</li>
+
+                <li>Exercise</li>
+
+                <li>Medical Reports</li>
+
+            </ul>
+
+        </div>
+
+    </main>
+
+    <!-- Fixed Bottom -->
+
+    <div class="bottomBar">
+
+        <button id="uploadBtn" class="toolBtn">
+
+            📎
+
+        </button>
+
+        <button id="cameraBtn" class="toolBtn">
+
+            📷
+
+        </button>
+
+        <button id="micBtn" class="toolBtn">
+
+            🎤
+
+        </button>
+
+        <input
+
+            id="userInput"
+
+            type="text"
+
+            placeholder="Ask your health question..."
+
+            autocomplete="off"
+
+        >
+
+        <button id="sendBtn">
+
+            ➤
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script src="mic.js"></script>
+
+</body>
+
+</html>

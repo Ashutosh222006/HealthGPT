@@ -1,0 +1,372 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+
+    background:#0d1117;
+
+    color:white;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+/* ===========================
+        APP
+=========================== */
+
+.app{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100vh;
+
+}
+
+/* ===========================
+        HEADER
+=========================== */
+
+.header{
+
+    height:70px;
+
+    background:#161b22;
+
+    border-bottom:1px solid #30363d;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 30px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.status{
+
+    color:#3fb950;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+        CHAT
+=========================== */
+
+.chatContainer{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:35px 20px 140px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/* ===========================
+      CHAT BUBBLES
+=========================== */
+
+.user{
+
+    align-self:flex-end;
+
+    background:#10a37f;
+
+    color:white;
+
+    padding:14px 18px;
+
+    border-radius:18px 18px 5px 18px;
+
+    max-width:75%;
+
+    font-size:16px;
+
+    line-height:1.6;
+
+    word-wrap:break-word;
+
+}
+
+.bot{
+
+    align-self:flex-start;
+
+    background:#1f2937;
+
+    color:white;
+
+    padding:16px 20px;
+
+    border-radius:18px 18px 18px 5px;
+
+    max-width:80%;
+
+    font-size:16px;
+
+    line-height:1.7;
+
+    word-wrap:break-word;
+
+    border:1px solid #2f3542;
+
+}
+
+/* ===========================
+        INPUT BAR
+=========================== */
+
+.bottomBar{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:90px;
+
+    background:#161b22;
+
+    border-top:1px solid #30363d;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:18px 25px;
+
+    z-index:999;
+
+}
+
+/* ===========================
+        INPUT
+=========================== */
+
+#userInput{
+
+    flex:1;
+
+    height:52px;
+
+    border:none;
+
+    outline:none;
+
+    background:#21262d;
+
+    color:white;
+
+    font-size:17px;
+
+    border-radius:15px;
+
+    padding:0 18px;
+
+}
+
+#userInput::placeholder{
+
+    color:#8b949e;
+
+}
+
+/* ===========================
+        BUTTONS
+=========================== */
+
+.toolBtn{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#21262d;
+
+    color:white;
+
+    font-size:20px;
+
+    transition:.25s;
+
+}
+
+.toolBtn:hover{
+
+    transform:scale(1.08);
+
+}
+
+#micBtn:hover{
+
+    background:#ff4d4d;
+
+}
+
+#cameraBtn:hover{
+
+    background:#2563eb;
+
+}
+
+#uploadBtn:hover{
+
+    background:#facc15;
+
+    color:black;
+
+}
+
+#sendBtn{
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#10a37f;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#sendBtn:hover{
+
+    background:#0d8f6d;
+
+    transform:scale(1.08);
+
+}
+
+/* ===========================
+        SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#30363d;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0d1117;
+
+}
+
+/* ===========================
+        MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.header{
+
+    padding:15px;
+
+}
+
+.logo{
+
+    font-size:22px;
+
+}
+
+.bottomBar{
+
+    padding:10px;
+
+    gap:8px;
+
+}
+
+.toolBtn{
+
+    width:42px;
+
+    height:42px;
+
+}
+
+#sendBtn{
+
+    width:45px;
+
+    height:45px;
+
+}
+
+#userInput{
+
+    font-size:15px;
+
+}
+
+.bot,.user{
+
+    max-width:95%;
+
+}
+
+}

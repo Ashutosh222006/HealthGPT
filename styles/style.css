@@ -1,0 +1,143 @@
+/* ===========================
+        HEADER
+=========================== */
+
+/* Hide Streamlit Header */
+header[data-testid="stHeader"] {
+    height: 50px !important;
+    background: #0f172a !important;
+    border-bottom: none !important;
+}
+
+/* Sidebar toggle button */
+button[kind="header"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 999999 !important;
+}
+
+/* Top Toolbar */
+[data-testid="stToolbar"] {
+    display: flex !important;
+}
+
+/* Hide Footer */
+footer {
+    display: none;
+}
+
+/* ===========================
+        LAYOUT
+=========================== */
+
+/* Main Background */
+.stApp {
+    background: #0f172a;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background: #111827;
+    border-right: 1px solid #374151;
+}
+
+/* Main */
+section.main {
+    margin-left: 0px !important;
+}
+
+/* ===========================
+        CHAT BUBBLES
+=========================== */
+
+/* User Bubble */
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-user"]) {
+    background: #10b981;
+    color: white;
+    border-radius: 18px;
+    padding: 10px;
+}
+
+/* Assistant Bubble */
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-assistant"]) {
+    background: #1f2937;
+    color: white;
+    border-radius: 18px;
+    padding: 10px;
+}
+
+/* ===========================
+        BUTTONS
+=========================== */
+
+.stButton > button {
+    border-radius: 12px;
+}
+
+/* ===========================
+        SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 10px;
+}
+
+/* ===========================
+        TOOL BUTTON
+=========================== */
+
+div[data-testid="stHorizontalBlock"] > div:nth-child(1) {
+    position: fixed;
+    z-index: 999999;
+    margin: 0;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 24px;
+    margin-left: 30px;
+    width: 55px;
+}
+
+/* ===========================
+        SPEAKER BUTTON
+=========================== */
+
+div[data-testid="stHorizontalBlock"] > div:nth-child(2) {
+    position: fixed;
+    bottom: 22px;
+    left: 105px;
+    width: 55px;
+    z-index: 999999;
+}
+
+/* ===========================
+        CHAT INPUT
+=========================== */
+
+div[data-testid="stChatInput"] {
+    position: fixed;
+    bottom: 15px;
+    left: 350px;
+    right: 200px;
+    z-index: 999998;
+}
+
+/* ===========================
+        HIDE AUDIO PLAYER
+=========================== */
+
+[data-testid="stAudio"],
+audio {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}

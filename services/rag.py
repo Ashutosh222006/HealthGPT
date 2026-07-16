@@ -70,29 +70,31 @@ print("✅ Embedding Model Loaded")
 # DOWNLOAD CHROMADB FROM HUGGING FACE
 # ==========================================
 
-if not os.path.exists("chroma_db"):
+print("📥 Downloading ChromaDB from Hugging Face...")
 
-    print("Downloading ChromaDB from Hugging Face...")
+download_path = snapshot_download(
+    repo_id="pvcashu/healthgpt-data",
+    repo_type="dataset",
+    local_dir=".",
+    local_dir_use_symlinks=False
+)
 
-    snapshot_download(
-        repo_id="pvcashu/healthgpt-data",
-        repo_type="dataset",
-        local_dir=".",
-        local_dir_use_symlinks=False
-    )
+print("Download Path:", download_path)
 
-    print("Download Complete!")
+CHROMA_PATH = "chroma_db"
 
-if os.path.exists("chroma_db"):
-    print("Chroma exists")
-    print(os.listdir("chroma_db"))
+print("Actual Chroma Path:", CHROMA_PATH)
+# ==========================================
+# DEBUG
+# ==========================================
+
+print("Current folder:", os.getcwd())
+print("Folders:", os.listdir("."))
+
+if os.path.exists(CHROMA_PATH):
+    print("Contents of chroma_db:", os.listdir(CHROMA_PATH))
 else:
-    print("Chroma folder NOT FOUND")
-    print("Folders:", os.listdir("."))
-
-# ==========================================
-# LOAD CHROMADB
-# ==========================================
+    print("❌ chroma_db folder NOT FOUND")
 
 # ==========================================
 # LOAD CHROMADB
@@ -101,14 +103,36 @@ else:
 chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
 
 print("Current folder:", os.getcwd())
-print("Folders:", os.listdir("."))
+print("Current CHROMA_PATH:", CHROMA_PATH)
 
-print("Collections:", chroma_client.list_collections())
+if os.path.exists(CHROMA_PATH):
+    print("Files:", os.listdir(CHROMA_PATH))
+else:
+    raise Exception(f"❌ Chroma folder not found: {CHROMA_PATH}")
+
+collections = chroma_client.list_collections()
+
+print("Collections Found:", collections)
+
+if len(collections) == 0:
+    raise Exception(
+        "❌ No collections found.\n"
+        "Check whether your Hugging Face dataset contains a valid ChromaDB."
+    )
+
+collection_names = [c.name for c in collections]
+
+print("Collection Names:", collection_names)
+
+if COLLECTION_NAME not in collection_names:
+    raise Exception(
+        f"❌ Collection '{COLLECTION_NAME}' not found.\n"
+        f"Available collections: {collection_names}"
+    )
 
 collection = chroma_client.get_collection(COLLECTION_NAME)
 
-print("✅ Vector Database Loaded")
-
+print("✅ Vector Database Loaded Successfully")
 # ==========================================
 # CHAT MEMORY
 # ==========================================

@@ -7,8 +7,9 @@ from sentence_transformers import SentenceTransformer
 
 # ==========================================
 # ENVIRONMENT
+# ==========================================
 
-load_dotenv()   # 👈 Ye line add karo
+load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
@@ -18,7 +19,7 @@ if not GROQ_API_KEY:
         "GROQ_API_KEY=your_key_here"
     )
 
-client = Groq(api_key=GROQ_API_KEY)
+client_groq = Groq(api_key=GROQ_API_KEY)
 
 
 def speech_to_text(audio_path):
@@ -64,6 +65,7 @@ print("🚀 Loading AI Health Assistant...")
 model = SentenceTransformer(EMBEDDING_MODEL)
 
 print("✅ Embedding Model Loaded")
+
 # ==========================================
 # DOWNLOAD CHROMADB FROM HUGGING FACE
 # ==========================================
@@ -80,13 +82,21 @@ if not os.path.exists("chroma_db"):
     )
 
     print("Download Complete!")
+
+if os.path.exists("chroma_db"):
+    print("Chroma exists")
+    print(os.listdir("chroma_db"))
+else:
+    print("Chroma folder NOT FOUND")
+    print("Folders:", os.listdir("."))
+
 # ==========================================
 # LOAD CHROMADB
 # ==========================================
 
 chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
-
-collection = chroma_client.get_collection(COLLECTION_NAME)
+print("Collections:", chroma_client.list_collections())
+#collection = chroma_client.get_collection(COLLECTION_NAME)
 
 print("✅ Vector Database Loaded")
 

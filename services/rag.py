@@ -94,9 +94,18 @@ else:
 # LOAD CHROMADB
 # ==========================================
 
+# ==========================================
+# LOAD CHROMADB
+# ==========================================
+
 chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
+
+print("Current folder:", os.getcwd())
+print("Folders:", os.listdir("."))
+
 print("Collections:", chroma_client.list_collections())
-#collection = chroma_client.get_collection(COLLECTION_NAME)
+
+collection = chroma_client.get_collection(COLLECTION_NAME)
 
 print("✅ Vector Database Loaded")
 

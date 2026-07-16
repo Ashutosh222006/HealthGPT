@@ -80,10 +80,17 @@ download_path = snapshot_download(
 )
 
 print("Download Path:", download_path)
+print("Root:", os.listdir("."))
 
 CHROMA_PATH = "chroma_db"
 
 print("Actual Chroma Path:", CHROMA_PATH)
+
+if os.path.exists(CHROMA_PATH):
+    print("Contents:", os.listdir(CHROMA_PATH))
+    print("sqlite exists:", os.path.exists(os.path.join(CHROMA_PATH, "chroma.sqlite3")))
+else:
+    print("❌ chroma_db folder not found")
 # ==========================================
 # DEBUG
 # ==========================================

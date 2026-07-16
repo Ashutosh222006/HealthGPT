@@ -1,5 +1,10 @@
 streamlit
+groq
+python-dotenv
 pypdf
 sentence-transformers
 chromadb
 google-generativeai
+SpeechRecognition
+pydub
+Pillow

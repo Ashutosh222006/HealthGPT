@@ -13,3 +13,5 @@ audio-recorder-streamlit==0.0.10
 torch
 transformers
 numpy
+audio-recorder-streamlit
+torchvision
